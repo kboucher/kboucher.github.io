@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -146,7 +146,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,7 +158,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,16 +168,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -186,7 +184,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -209,8 +209,8 @@ export default class PortfolioRoute extends Route {
         @method model
         @returns {Promise} Resolves to an array of `PortfolioEntryRecords`
      */
-<span class="fstat-no" title="function not covered" >    mo</span>del() {
-<span class="cstat-no" title="statement not covered" >        return this.store.findAll('portfolio-entry');</span>
+    model() {
+        return this.store.findAll('portfolio-entry');
     }
 &nbsp;
     /**
@@ -221,8 +221,8 @@ export default class PortfolioRoute extends Route {
         @method afterModel
         @returns {Promise} Resolves to an array of loaded portfolio images
      */
-<span class="fstat-no" title="function not covered" >    af</span>terModel(model) {
-<span class="cstat-no" title="statement not covered" >        return this.preloadImages(model);</span>
+    afterModel(model) {
+        return this.preloadImages(model);
     }
 &nbsp;
     /**
@@ -231,15 +231,15 @@ export default class PortfolioRoute extends Route {
         @method preloadImages
         @returns {Promise} Resolves to an array of loaded portfolio images
      */
-<span class="fstat-no" title="function not covered" >    pr</span>eloadImages(portfolioEntries) {
-        const imageUrls = <span class="cstat-no" title="statement not covered" >portfolioEntries.map(<span class="fstat-no" title="function not covered" >(e</span>ntry) =&gt; <span class="cstat-no" title="statement not covered" >entry.image)</span>;</span>
-        const imageRequests = <span class="cstat-no" title="statement not covered" >[];</span>
+    preloadImages(portfolioEntries) {
+        const imageUrls = portfolioEntries.map((entry) =&gt; entry.image);
+        const imageRequests = [];
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        imageUrls.forEach(<span class="fstat-no" title="function not covered" >(i</span>mageUrl) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            imageRequests.push(fetch(imageUrl));</span>
+        imageUrls.forEach((imageUrl) =&gt; {
+            imageRequests.push(fetch(imageUrl));
         });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        return Promise.allSettled(imageRequests);</span>
+        return Promise.allSettled(imageRequests);
     }
 &nbsp;
     /**
@@ -249,8 +249,8 @@ export default class PortfolioRoute extends Route {
         @param {Ember.Controller} controller
         @param {ArrayProxy} model Resolved portfolio entries collection
      */
-<span class="fstat-no" title="function not covered" >    se</span>tupController(controller, model) {
-<span class="cstat-no" title="statement not covered" >        Object.assign(controller, {</span>
+    setupController(controller, model) {
+        Object.assign(controller, {
             portfolioEntries: model,
         });
     }
@@ -262,7 +262,7 @@ export default class PortfolioRoute extends Route {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-23T00:19:21.005Z
+                at 2022-08-24T01:42:05.230Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
